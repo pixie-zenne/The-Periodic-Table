@@ -7,7 +7,7 @@
 
 #include "Module00-The_Elements.c"
 
-void ThePeriodicTable(void) {
+void The_Periodic_Table(void) {
   printf("\n1\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2");
   printf("\nH\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tHe\n");
 
@@ -39,23 +39,28 @@ void ThePeriodicTable(void) {
 }
 
 int master(void) {
-  bool IsProgramRunning = true;
+  bool Is_Program_Running = true;
 
-  char UserInput[8];
+  char User_Input[8];
   int Selection = 0;
 
-  ThePeriodicTable();
+  The_Periodic_Table();
+
   printf("\n\nPlease select an element by its number in the table");
   printf("To exit the program, pleast type \"exit\"");
   while(IsProgramRunning == true) {
     printf("User: ");
+
     fgets(UserInput, sizeof(UserInput), stdin);
     UserInput[strcspn(UserInput, "\n")] = '\0';
     Selection = atoi(UserInput);
 
-    // exit
+    chat Exit[5] = "exit\0";
+    if(stdcmp(User_Input, Exit) == 0) {
+      // goodbye user
+    }
 
-    // select
+    The_Elements(Selection);
 
     fflush(stdin);
   }
