@@ -51,13 +51,14 @@ int master(void) {
   while(IsProgramRunning == true) {
     printf("User: ");
 
-    fgets(UserInput, sizeof(UserInput), stdin);
-    UserInput[strcspn(UserInput, "\n")] = '\0';
-    Selection = atoi(UserInput);
+    fgets(User_Input, sizeof(User_Input), stdin);
+    User_Input[strcspn(User_Input, "\n")] = '\0';
+    Selection = atoi(User_Input);
 
     chat Exit[5] = "exit\0";
     if(stdcmp(User_Input, Exit) == 0) {
-      // goodbye user
+      Is_Program_Running = false;
+      printf("Goodbye user!");
     }
 
     The_Elements(Selection);
